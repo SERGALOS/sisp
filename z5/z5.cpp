@@ -17,8 +17,8 @@ int main()
 	{
 		for (int columnNum = 0; columnNum < MatrixSize; columnNum++)
 		{
-			cout << rowNum + 1 << "-я строка";
-			cout << columnNum + 1 << "-й столбец";
+			cout << rowNum + 1 << "-я строка ";
+			cout << columnNum + 1 << "-й столбец ";
 			cin >> OurMatrix[rowNum][columnNum];
 		}
 		cout << endl;
