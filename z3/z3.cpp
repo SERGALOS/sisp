@@ -1,34 +1,25 @@
 ﻿#include <iostream>
+#include <ctime>
+#include <cstdlib>
 using namespace std;
 
 int main()
 {
 	setlocale(LC_ALL, "rus");
-	int boxWithApples = 15; // количество ящиков на складе
-	int amountBoxesForSale = 0; // количество отгружаемых ящиков
 
-	cout << "Сейчас на складе; " << boxWithApples << " ящиков с яблоками \n\n";
-	for (int i = 1; ; i++) // сщётчиков i будет считать количество машин к погрузке
+	const int SIZE = 10;
+
+	int ourArr[SIZE] = {};
+	int ourArr2[SIZE] = {};
+	int ourArr3[SIZE] = {};
+	
+	srand(time(NULL));
+	// заполняем первые два массива
+	cout << "Массив ourArr:  ";
+	for (int i = 0; i < SIZE; i++)
 	{
-		cout << "Сколько ящиков загрузить в " << i << "-ю машину?";
-		cin >> amountBoxesForSale;
-		
-		if (amountBoxesForSale > boxWithApples)
-		{
-			cout << "\nНа сладе недостаточно товара!";
-			cout << "Осталось только " << boxWithApples << " ящиков \n\n";
-			i--; //уменьшить счётчик на еденицу
-		}
-		else
-		{
-			boxWithApples -= amountBoxesForSale; // перезаписываем значение
-			cout << "Осталось " << boxWithApples << " ящиков. \n";
-		}
-		if (boxWithApples == 0) // если ящиков больше нет - выйти из цыкла
-		{
-			cout << "Яблоки закончились! Давай до свидания!\n";
-			break;
-		}
+		ourArr[i] = 10 + rand() % 21;
+		cout << ourArr[i] << " | ";
 	}
-	return 0;
+
 }
