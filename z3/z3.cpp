@@ -1,69 +1,77 @@
 ﻿#include <iostream>
 #include <ctime>
 #include <cstdlib>
+
 using namespace std;
+
+bool calcFirstMove();
+void drowCude(int res);
+int computerOrPlayerThrow();
+void showIntermediateResult(int pointsOfComputer, int pointsOfUser, int numberThrow);
 
 int main()
 {
 	setlocale(LC_ALL, "rus");
-
-	const int SIZE = 10;
-
-	int ourArr[SIZE] = {};
-	int ourArr2[SIZE] = {};
-	int ourArr3[SIZE] = {};
-	
 	srand(time(NULL));
-	// заполняем первые два массива
-	cout << "Массив ourArr:  ";
-	for (int i = 0; i < SIZE; i++)
+
+	int playerScore = 0; // для накопления очков 
+	int computerScore = 0;
+	int whoMove = 0;
+	char userName[16] = {};
+
+	cout << "Ваше имя (латиницей): ";
+	cin >> userName;
+
+	whoMove = calcFirstMove(); //если будет 0 - ходит игрок, 1 - ходит компьютер
+	
+	for (int i = 0; i < 4; i++)
 	{
-		ourArr[i] = 10 + rand() % 21;
-		cout << ourArr[i] << " | ";
-	}
-	cout << endl << endl;
-
-	cout << "Масив ourArr2:  ";
-	for (int i = 0; i < SIZE; i++)
-	{
-		ourArr2[i] = 10 + rand() % 21;
-		cout << ourArr2[i] << " | ";
-	}
-	cout << endl << endl;
-
-	// заполняем третий масив
-	cout << "Масив ourArr3:  ";
-	for (int i = 0; i < SIZE; i++)
-	{
-		ourArr3[i] = ourArr2[i] + ourArr3[i];
-		cout << ourArr3[i] << " | ";
-	}
-	cout << endl << endl;
-
-	// ищем среднее ариф., минимум и максимум
-	int averageValue = 0;
-	int sum = 0;
-	int minValue = ourArr3[0];
-	int maxValue = ourArr3[0];
-
-	for (int i = 0; i < SIZE; i++)
-	{
-		sum += ourArr3[i];
-
-		if (ourArr3[i] < minValue)
+		for (int j = 0; j < 2; j++)
 		{
-			minValue = ourArr3[i];
+			if (whoMove)
+			{
+				cout << "\n Ходишь ты. ";
+				playerScore += computerOrPlayerThrow();
+			}
+			else
+			{
+				cout << "\nХодит компьютер. ";
+				computerOrPlayerThrow();
+			}
+			whoMove = !whoMove; // инверсия
 		}
-		if (ourArr3[i] > maxValue)
-		{
-			maxValue = ourArr3[i];
-		}
-	}	
-	averageValue = sum / SIZE;
 
-	cout << "Среднее арифметическое = " << averageValue << endl;
-	cout << "Минимальное значение = " << minValue << endl;
-	cout << "Максимальное значение = " << maxValue << endl;
+		showIntermediateResult(computerScore, playerScore, i);
+	}
 
+	if (computerScore > playerScore)
+	{
+		cout << "\n\nПобедитель этой игры - КОПЬЮТЕР\n!";
+		cout << "Жалаем успехов в следующий раз. \a\a\a\a\a\n\n";
+	}
+	else if (computerScore < playerScore)
+	{
+		cout << "\n\nПобедитель этой игры - \n!";
+		cout << "Поздравляем!!!!\a\a\a\a\a\n\n";
+	}
+	else
+	{
+		cout << "\n\nВ этой игре НИЧЬЯ \a\a\a\a\n\n";
+	}
+	
 	return 0;
+}
+
+bool calcFirstMove() // генерирует и возвращает случайное число 0 или 1
+{
+	return rand() % 2;
+}
+
+void showIntermediateResult(int computerScore, int playerScore, int numberThrow)
+{
+	cout << "\n____________________________________\n";
+	cout << "Комп: " << computerScore << " ||| Ты:" << playerScore << endl;
+	cout << "После " << numberThrow + 1 << "-го броска ";
+	if (computerScore > playerScore)
+		cout
 }

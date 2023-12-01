@@ -1,31 +1,26 @@
 ﻿#include <iostream>
-#include <ctime>
-#include <cstdlib>
 using namespace std;
+
+void fillAndShowArry(int arrayForFilling[], int size);
 
 int main()
 {
-	int ourArr[10] = {};
-	const int lowerLimit = 7;
-	const int upperLimit = 14;
+	const int SiZE1 = 8;
+	const int SIZE2 = 14;
 
-	srand(time(NULL));
-	for (int i = 0; i < 10; i++) // заполняем и показываем
-	{
-		ourArr[i] = lowerLimit + rand() % (upperLimit - lowerLimit + 1);
-		cout << ourArr[i] << " | ";
-	}
-	
-	cout << endl << endl;
-
-	for (int i = 0; i < 10; i++)
-	{
-		if (ourArr[i] >= 10)
-		{
-			ourArr[i] -= 10;
-		}
-		cout << ourArr[i] << " | ";
-	}
-	cout << endl << endl;
+	int arrayForFilling1[SiZE1] = {};
+	int arrayForFilling2[SIZE2] = {};
+	fillAndShowArry(arrayForFilling1, SiZE1);
+	fillAndShowArry(arrayForFilling2, SIZE2);
 	return 0;
+}
+
+void fillAndShowArry(int arrayForFilling[], int size)
+{
+	for (int i = 0; i < size; i++)
+	{
+		arrayForFilling[i] = i + 1;
+		cout << arrayForFilling[i] << "  ";
+	}
+	cout << endl;
 }

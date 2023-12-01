@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{de245fea-2291-4fdb-aceb-d59d8d891a2e}</ProjectGuid>
-    <RootNamespace>z1</RootNamespace>
+    <ProjectGuid>{d4908cd4-de73-461e-b594-ebe327705db6}</ProjectGuid>
+    <RootNamespace>My4z</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -127,7 +127,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="z1.cpp" />
+    <ClCompile Include="4z.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
