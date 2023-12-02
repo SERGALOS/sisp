@@ -73,5 +73,81 @@ void showIntermediateResult(int computerScore, int playerScore, int numberThrow)
 	cout << "Комп: " << computerScore << " ||| Ты:" << playerScore << endl;
 	cout << "После " << numberThrow + 1 << "-го броска ";
 	if (computerScore > playerScore)
-		cout
+		cout << " выигрывает компьютер!!!\n";
+	else if (computerScore < playerScore)
+		cout << " выигрываете Вы!!!\n";
+	else cout << " ничья!!!\n";
+	cout << "______________________________\n\n";
+}
+
+//вызывается в функции computerOrPlayerThrow()
+void drowCude(int res)
+{
+	switch (res)
+	{
+	case 1:
+		cout << "@@@@@@@\n";
+		cout << "@@@@@@@\n";
+		cout << "@@@ @@@\n";
+		cout << "@@@@@@@\n";
+		cout << "@@@@@@@\n";
+		break;
+	case 2:
+		cout << "@@@@@@@\n";
+		cout << "@ @@@@@\n";
+		cout << "@@@@@@@\n";
+		cout << "@@@@@ @\n";
+		cout << "@@@@@@@\n";
+		break;
+	case 3:
+		cout << "@@@@@@@\n";
+		cout << "@ @@@@@\n";
+		cout << "@@@ @@@\n";
+		cout << "@@@@@ @\n";
+		cout << "@@@@@@@\n";
+		break;
+	case 4:
+		cout << "@@@@@@@\n";
+		cout << "@ @@@ @\n";
+		cout << "@@@@@@@\n";
+		cout << "@ @@@ @\n";
+		cout << "@@@@@@@\n";
+		break;
+	case 5:
+		cout << "@@@@@@@\n";
+		cout << "@ @@@ @\n";
+		cout << "@@@ @@@\n";
+		cout << "@ @@@ @\n";
+		cout << "@@@@@@@\n";
+		break;
+	case 6:
+		cout << "@@@@@@@\n";
+		cout << "@ @ @ @\n";
+		cout << "@@@@@@@\n";
+		cout << "@ @ @ @\n";
+		cout << "@@@@@@@\n";
+		break;
+	}
+}
+
+int computerOrPlayerThrow() // реализация броска пары кубиков и возврат полученнных очков
+{
+	int result = 0;
+	char c = 0;
+
+	cout << "Нажми Y и Enter, чтобы бросить кубики: ";
+	do
+	{
+		cin.sync(); // очистка буфера
+		cin >> c;
+	} while (c != 'y' && c != 'Y');
+	int tmp = 0; // для накопления очков пары брошенных кубиков
+	for (int i = 0; i < 2; ++i) {
+		tmp = 1 + rand() % 6;
+		drowCude(tmp);
+		result += tmp;
+		cout << endl;
+	}
+	cout << "Всего на кубиках " << result << " очков";
+	return result;
 }
