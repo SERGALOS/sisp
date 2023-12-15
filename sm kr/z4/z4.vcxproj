@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{19fb7580-71fa-4fda-9d30-9cf53396ea9c}</ProjectGuid>
-    <RootNamespace>z2</RootNamespace>
+    <ProjectGuid>{074aee4e-bf27-42a3-9131-fb6c4e5d050b}</ProjectGuid>
+    <RootNamespace>z4</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -127,7 +127,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="z2.cpp" />
+    <ClCompile Include="z4.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
